@@ -88,3 +88,21 @@ up_button.grid(row=0, column=2, padx=5, pady=5)
 
 down_button = tk.Button(button_frame, text="Down", command=down)
 down_button.grid(row=0, column=3, padx=5, pady=5)
+
+def play_pause_music():
+    send_keyevent(85)
+
+def next_song():
+    send_keyevent(87)
+
+def prev_song():
+    send_keyevent(88)
+
+music_button = tk.Button(button_frame, text="Play/Pause Music", command=play_pause_music)
+music_button.grid(row=1, column=0, padx=5, pady=5)
+
+next_song_button = tk.Button(button_frame, text="Next Song", command=next_song)
+next_song_button.grid(row=1, column=1, padx=5, pady=5)
+
+prev_song_button = tk.Button(button_frame, text="Previous Song", command=prev_song)
+prev_song_button.grid(row=1, column=2, padx=5, pady=5)
