@@ -51,3 +51,6 @@ def mouse_callback(event, x, y, flags, param):
         end_y_device = int((y / window_height) * device_height)
 
         subprocess.Popen(f'adb shell input swipe {start_x_device} {start_y_device} {end_x_device} {end_y_device} 500', shell=True)
+
+def send_keyevent(keycode):
+    subprocess.Popen(f'adb shell input keyevent {keycode}', shell=True)
