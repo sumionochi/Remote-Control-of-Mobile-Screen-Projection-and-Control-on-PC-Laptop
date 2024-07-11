@@ -1,5 +1,6 @@
 import subprocess
 import cv2
+import tkinter as tk
 
 # Connection to the Android device
 adb_connect = subprocess.Popen('adb connect 192.168.29.82:24', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -54,3 +55,36 @@ def mouse_callback(event, x, y, flags, param):
 
 def send_keyevent(keycode):
     subprocess.Popen(f'adb shell input keyevent {keycode}', shell=True)
+
+# Tkinter window
+root = tk.Tk()
+root.title("Android Device Control")
+instructions_label = tk.Label(root, text="Press the buttons to control your Android device:")
+instructions_label.pack(pady=10)
+button_frame = tk.Frame(root)
+button_frame.pack()
+
+# Button functions
+def left():
+    send_keyevent(123)
+
+def right():
+    send_keyevent(124)
+
+def up():
+    send_keyevent(19)
+
+def down():
+    send_keyevent(20)
+
+left_button = tk.Button(button_frame, text="Left", command=left)
+left_button.grid(row=0, column=0, padx=5, pady=5)
+
+right_button = tk.Button(button_frame, text="Right", command=right)
+right_button.grid(row=0, column=1, padx=5, pady=5)
+
+up_button = tk.Button(button_frame, text="Up", command=up)
+up_button.grid(row=0, column=2, padx=5, pady=5)
+
+down_button = tk.Button(button_frame, text="Down", command=down)
+down_button.grid(row=0, column=3, padx=5, pady=5)
