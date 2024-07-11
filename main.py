@@ -13,3 +13,13 @@ else:
 
 # Screen mirroring with audio capture
 screen_mirror = subprocess.Popen('adb shell screenrecord --bit-rate=8m --output-format=h264 --audio-source=1 -', shell=True)
+
+# Screen resolution automatic adjustment
+device_resolution = subprocess.check_output('adb shell wm size', shell=True).decode().strip().split(': ')[1]
+device_width, device_height = map(int, device_resolution.split('x'))
+
+# Aspect ratio calculation
+window_aspect_ratio = device_width / device_height
+max_window_height = 800
+window_height = max_window_height
+window_width = int(window_height * window_aspect_ratio)
