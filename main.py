@@ -10,3 +10,6 @@ if error:
     exit(1)
 else:
     print(f"Connected to device: {output.decode('utf-8')}")
+
+# Screen mirroring with audio capture
+screen_mirror = subprocess.Popen('adb shell screenrecord --bit-rate=8m --output-format=h264 --audio-source=1 -', shell=True)
