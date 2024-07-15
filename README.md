@@ -1,6 +1,7 @@
 # Remote Control of Mobile Screen Projection and Control on PC/Laptop
 
 ## Overview
+For more information, visit [Prototype Video Demo]([https://youtu.be/CAHjdSgKo1Y](https://www.youtube.com/watch?v=JTCI_KNyddM&feature=youtu.be)).
 
 This project provides a solution for controlling an Android mobile device from a PC/Laptop using Python. It includes features like screen mirroring, navigation, music, and call functionality. The connection between the PC and mobile can be through USB or WiFi.
 
